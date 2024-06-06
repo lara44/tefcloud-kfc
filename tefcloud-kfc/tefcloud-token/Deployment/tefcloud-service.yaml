@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tefcloud-token
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80 # Puerto externo que expondrás
+    targetPort: 8080 # Puerto interno en el contenedor
+  selector:
+    role: tefcloud-token

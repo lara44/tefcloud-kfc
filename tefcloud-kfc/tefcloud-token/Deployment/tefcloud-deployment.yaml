@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tefcloud-token
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: tefcloud-token
+  template:
+    metadata:
+      labels:
+        role: tefcloud-token
+    spec:
+      containers:
+      - name: tefcloud-token
+        image: kfcregistry.azurecr.io/tefcloud-token-qa:1.0
+        ports:
+        - containerPort: 8080 # Puerto interno en el contenedor
